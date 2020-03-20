@@ -11,6 +11,7 @@ using DataLibrary;
 using static DataLibrary.BusinessLogic.ModuleProcessor;
 using static DataLibrary.BusinessLogic.CourseProcessor;
 using static DataLibrary.BusinessLogic.InstructorProcessor;
+using static DataLibrary.BusinessLogic.OrganizationProcessor;
 
 namespace Transcript_Repository.Controllers
 {
@@ -189,6 +190,56 @@ namespace Transcript_Repository.Controllers
             }
 
             return View(instructors);
+        }
+
+
+        /// <summary>
+        /// ORGANIZATION SET UP
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult OrganizationRegistration()
+        {
+            ViewBag.Message = "Organization Registration";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult OrganizationRegistration(OrganizationModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ModelState.IsValid)
+                {
+                    int organizationRecords = CreateOrganization(model.OrganizationId,
+                                            model.OrganizationName,
+                                            model.OrganizationEmail);
+                    return RedirectToAction("ViewOrganizations"); // if added succesfully, go to ViewOrganizations page
+                }
+            }
+            return View();
+        }
+
+        public ActionResult ViewOrganizations()
+        {
+            ViewBag.Message = "Organiztions List";
+
+            var data = LoadOrganizations();
+            List<OrganizationModel> organizations = new List<OrganizationModel>();
+
+            foreach (var organization in data)
+            {
+                organizations.Add(new OrganizationModel
+                {
+                    OrganizationId = organization.OrganizationId,
+                    OrganizationName = organization.OrganizationName,
+                    OrganizationEmail = organization.OrganizationEmail,
+                    OrganizationConfirmEmail = organization.OrganizationEmail
+                });
+            }
+
+            return View(organizations);
         }
     }
 }

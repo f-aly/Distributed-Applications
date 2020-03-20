@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.BusinessLogic
 {
-    public class InstructorProcessor
+    public static class InstructorProcessor
     {
         public static int CreateInstructor(int instructorId, string instructorFirstName,
                string instructorLastName, string instructorEmail)

@@ -227,6 +227,7 @@
     <Compile Include="Models\InstructorModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ModuleModel.cs" />
+    <Compile Include="Models\OrganizationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="DtoModels\Module\ModuleDto.cs" />
@@ -420,6 +421,8 @@
     <Content Include="Views\Home\ViewCourses.cshtml" />
     <Content Include="Views\Home\InstructorRegistration.cshtml" />
     <Content Include="Views\Home\ViewInstructors.cshtml" />
+    <Content Include="Views\Home\OrganizationRegistration.cshtml" />
+    <Content Include="Views\Home\ViewOrganizations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

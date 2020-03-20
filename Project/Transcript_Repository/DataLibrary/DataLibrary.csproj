@@ -48,10 +48,12 @@
     <Compile Include="BusinessLogic\CourseProcessor.cs" />
     <Compile Include="BusinessLogic\InstructorProcessor.cs" />
     <Compile Include="BusinessLogic\ModuleProcessor.cs" />
+    <Compile Include="BusinessLogic\OrganizationProcessor.cs" />
     <Compile Include="DataAccess\SqlDataAccess.cs" />
     <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\InstructorModel.cs" />
     <Compile Include="Models\ModuleModel.cs" />
+    <Compile Include="Models\OrganizationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
