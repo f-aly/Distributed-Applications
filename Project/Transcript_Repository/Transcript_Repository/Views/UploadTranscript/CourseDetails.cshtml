@@ -66,9 +66,9 @@
             </div>
         </div>
 
-        <div id="Parentoftranscript">
-            <div id="Transcript_Template">
-
+        <div id="Parentoftranscript" >
+            <div id="Transcript_Template" style="display: none">
+                <!-- SHOW CONTENT FROM AddModule.cshtml HERE -->
 
             </div>
         </div>
@@ -144,7 +144,7 @@
             {
                 var Fields = "<hr style='width:500px; border-color:black' /> <div class='panel-body'> <div class='row'> <div class='col-md-2'><b>Module</b><label>Module Title:</label> <br /> <label>Module ID:</label> <br /><label>Result:</label> <br /> <label>Trimester ID:</label> <br /> <label>Comments:</label> </div> <div class='col-md-2'><br /><input size='400' id='Program_Name"+ModuleNumber+"'; placeholder='Embedded Systems' type='text' /><br> <input size='7' id='Student_ID"+ ModuleNumber +"'; placeholder='700069' type='text' /><br><input class='m-md-2' size='15' id='Student_Name"+ ModuleNumber + "'; placeholder='64' type='text' /><br> <input size='4' id='Qualification_Type" + ModuleNumber + "'; placeholder='1' type='text' /><br> <input size='400' id='Results" + ModuleNumber +"' placeholder='ACW 1: 50%, ACW 2: 74%' type='text' /> </div> </div> </div>";
                 HtmlHolder += Fields;
-                ModuleNumber++;
+                //ModuleNumber++;
             }
         }
         

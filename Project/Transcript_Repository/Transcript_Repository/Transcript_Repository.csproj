@@ -224,6 +224,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ModuleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="DtoModels\Module\ModuleDto.cs" />
@@ -411,6 +412,8 @@
     <Content Include="Views\Home\NotImplemented.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\SeeTranscripts\EditTranscripts.cshtml" />
+    <Content Include="Views\Home\AddModule.cshtml" />
+    <Content Include="Views\Home\ViewModules.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -425,6 +428,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{017f0738-41c8-4d18-9e54-765cd16e507c}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
