@@ -10,6 +10,7 @@ using Transcript_Repository.Models;
 using DataLibrary;
 using static DataLibrary.BusinessLogic.ModuleProcessor;
 using static DataLibrary.BusinessLogic.CourseProcessor;
+using static DataLibrary.BusinessLogic.InstructorProcessor;
 
 namespace Transcript_Repository.Controllers
 {
@@ -140,6 +141,54 @@ namespace Transcript_Repository.Controllers
             }
 
             return View(courses);
+        }
+
+        /// <summary>
+        /// INSTRUCTOR SET UP
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult InstructorRegistration()
+        {
+            ViewBag.Message = "Instructor Registration";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken] // captures data
+        public ActionResult InstructorRegistration(InstructorModel model)
+        {
+            if (ModelState.IsValid) // if they followed the validation rules set in CourseModel
+            {
+                int instructorRecords = CreateInstructor(model.InstructorId,
+                                      model.InstructorFirstName,
+                                      model.InstructorLastName,
+                                      model.InstructorEmail);
+                return RedirectToAction("ViewInstructors"); // if added succesfully, go to ViewModules page
+            }
+            return View();
+        }
+
+        public ActionResult ViewInstructors()
+        {
+            ViewBag.Message = "Instructors List";
+
+            var data = LoadInstructors();
+            List<InstructorModel> instructors = new List<InstructorModel>();
+
+            foreach (var instructor in data)
+            {
+                instructors.Add(new InstructorModel
+                {
+                    InstructorId = instructor.InstructorId,
+                    InstructorFirstName = instructor.InstructorFirstName,
+                    InstructorLastName = instructor.InstructorLastName,
+                    InstructorEmail = instructor.InstructorEmail,
+                    InstructorConfirmEmail = instructor.InstructorEmail
+                });
+            }
+
+            return View(instructors);
         }
     }
 }
