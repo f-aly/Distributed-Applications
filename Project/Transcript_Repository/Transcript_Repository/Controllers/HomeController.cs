@@ -9,6 +9,7 @@ using Transcript_Repository.ViewModels;
 using Transcript_Repository.Models;
 using DataLibrary;
 using static DataLibrary.BusinessLogic.ModuleProcessor;
+using static DataLibrary.BusinessLogic.CourseProcessor;
 
 namespace Transcript_Repository.Controllers
 {
@@ -46,7 +47,7 @@ namespace Transcript_Repository.Controllers
         }
 
         /// <summary>
-        /// ADD A MODULE
+        /// MODULE SET UP
         /// </summary>
         /// <returns></returns>
         public ActionResult AddModule()
@@ -90,6 +91,55 @@ namespace Transcript_Repository.Controllers
             }
 
             return View(modules);
+        }
+
+
+        /// <summary>
+        /// COURSE SET UP
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddCourse()
+        {
+            ViewBag.Message = "Add A Course";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken] // captures data
+        public ActionResult AddCourse(CourseModel model)
+        {
+            if (ModelState.IsValid) // if they followed the validation rules set in CourseModel
+            {
+                int courseRecords = CreateCourse(model.CourseId,
+                                           model.CourseName,
+                                           model.CourseQualification,
+                                           model.CourseResult,
+                                           model.CourseLength);
+                return RedirectToAction("ViewCourses"); // if added succesfully, go to ViewModules page
+            }
+            return View();
+        }
+
+        public ActionResult ViewCourses()
+        {
+            ViewBag.Message = "Courses List";
+
+            var data = LoadCourses();
+            List<CourseModel> courses = new List<CourseModel>();
+            foreach (var course in data)
+            {
+                courses.Add(new CourseModel
+                {
+                    CourseId = course.CourseId,
+                    CourseName = course.CourseName,
+                    CourseQualification = course.CourseQualification,
+                    CourseResult = course.CourseResult,
+                    CourseLength = course.CourseLength
+                });
+            }
+
+            return View(courses);
         }
     }
 }
