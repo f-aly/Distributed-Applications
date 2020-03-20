@@ -1,0 +1,84 @@
+﻿@model Transcript_Repository.ViewModels.TranscriptViewModel
+@{
+    ViewBag.Title = "Detailed Transcript";
+}
+<h3>@ViewBag.Message</h3>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <div class="panel panel-primary" style="border-color:#24221f;">
+            <div class="panel-heading" style="background-color:#24221f; color:whitesmoke;">@ViewBag.Title</div>
+            <div class="panel-body">
+                <h4>Transcript ID      :<span id="TranscriptID">@Model.Transcripts[0].Transcript_ID</span><br></h4>
+                <h4>Student ID    :<span id="StudentName"></span><br></h4>
+                <h4>Transcript Date    :<span id="TranscriptDate">null</span><br></h4>
+                <div>                  
+                    <div class="panel panel-primary" style="border-color:#24221f;">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading;" style="background-color:#24221f; color:whitesmoke;">Modules</div>
+                     
+
+                        @foreach (var Module in  Model.Transcripts[0].Modules_Taken)
+                        {
+                            <div class="panel-body">
+                                <div class="row">
+
+                                    <div class="col-md-2">
+                                        <label>Year :</label> <br />
+                                        <label>Module Title:</label> <br />
+                                        <label>Module ID:</label> <br />
+                                        <label>Result:</label> <br />
+                                        <label>Trimester ID:</label> <br />
+                                        <label>Comments:</label>
+                                    </div>
+
+                                    <form action="/action_page.php">
+                                        <div class="col-md-2">
+                                            <input size="400" id="Module_t;" placeholder="Unavailable" type="text" disabled /><br>
+                                            <input size="400" id="Module_t;" placeholder="Unavailable" type="text" disabled /><br>
+                                            <input size="7" id="Module_ID;" placeholder=@Module.Module_ID type="text" disabled /><br>
+                                            <input class="m-md-2" size="15" id="Result_id;" placeholder=@Module.ModuleGrade type="text" disabled /><br>
+                                            <input size="4" id="Trimester_id;" placeholder=@Model.Transcripts[0].SemesterID type="text" disabled /><br>
+                                            <input size="400" id="Comments;" placeholder="ACW 1: @Module.ACWGrade%, ACW 2: 74%, ACW 3: " type="text" disabled />
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <hr style="width:500px; border-color:black" />
+                        }
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Copy-Link</button>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Sharable_Link.com">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><button type="button" class="btn btn-default">Download as PDF</button></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

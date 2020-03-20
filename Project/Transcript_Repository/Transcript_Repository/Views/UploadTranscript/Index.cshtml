@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Upload Transcript";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+        <div class="thumbnail" style="min-height:50px;">
+            <h4>Manual</h4>
+            <div class="card-body">
+                <p class="card-text">@Html.ActionLink("Enter details manually", "CourseDetails", "UploadTranscript")</p>
+            </div>
+        </div>
+
+        <div class="thumbnail" style="min-height:50px;">
+            <h4>PDF</h4>
+            <div class="card-body">
+                <p class="card-text">@Html.ActionLink("Upload PDF", "NotImplemented", "Home")</p>
+            </div>
+        </div>
+
+        <div class="thumbnail" style="min-height:50px;">
+            <h4>XML</h4>
+            <div class="card-body">
+                <p class="card-text">@Html.ActionLink("Use xml files to fill student transcript fields", "NotImplemented", "Home")</p>
+            </div>
+        </div>
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</body>
+</html>
