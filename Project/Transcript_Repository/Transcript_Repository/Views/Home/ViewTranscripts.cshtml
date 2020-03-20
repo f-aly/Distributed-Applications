@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Transcript_Repository.Models.TranscriptModel>
+
+@{
+    ViewBag.Title = "ViewTranscripts";
+}
+
+<h2>View Transcripts</h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddTranscript")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TranscriptId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TranscriptDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TranscriptStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TranscriptId)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.TranscriptDate)*@
+            @*@Convert.ToString(string.Format("dd/MM/yyyy", item.TranscriptDate))*@
+            @Convert.ToDateTime(item.TranscriptDate).ToString("MM/dd/yyyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TranscriptStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

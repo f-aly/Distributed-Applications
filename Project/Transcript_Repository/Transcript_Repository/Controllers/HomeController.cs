@@ -12,6 +12,7 @@ using static DataLibrary.BusinessLogic.ModuleProcessor;
 using static DataLibrary.BusinessLogic.CourseProcessor;
 using static DataLibrary.BusinessLogic.InstructorProcessor;
 using static DataLibrary.BusinessLogic.OrganizationProcessor;
+using static DataLibrary.BusinessLogic.TranscriptProcessor;
 
 namespace Transcript_Repository.Controllers
 {
@@ -192,7 +193,6 @@ namespace Transcript_Repository.Controllers
             return View(instructors);
         }
 
-
         /// <summary>
         /// ORGANIZATION SET UP
         /// </summary>
@@ -240,6 +240,54 @@ namespace Transcript_Repository.Controllers
             }
 
             return View(organizations);
+        }
+
+        /// <summary>
+        /// TRANSCRIPT SET UP
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddTranscript()
+        {
+            ViewBag.Message = "Add A Transcript";
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddTranscript(TranscriptModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ModelState.IsValid)
+                {
+                    int transcriptRecords = CreateTranscript(model.TranscriptId,
+                                            model.TranscriptDate,
+                                            model.TranscriptStatus);
+                    return RedirectToAction("ViewTranscripts"); // if added succesfully, go to ViewOrganizations page
+                }
+            }
+            return View();
+        }
+
+        public ActionResult ViewTranscripts()
+        {
+            ViewBag.Message = "Transcripts List";
+
+            var data = LoadTranscripts();
+            List<TranscriptModel> transcripts = new List<TranscriptModel>();
+
+            foreach (var transcript in data)
+            {
+                transcripts.Add(new TranscriptModel
+                {
+                    TranscriptId = transcript.TranscriptId,
+                    TranscriptDate = transcript.TranscriptDate,
+                    TranscriptStatus = transcript.TranscriptStatus
+                });
+            }
+
+            return View(transcripts);
         }
     }
 }
