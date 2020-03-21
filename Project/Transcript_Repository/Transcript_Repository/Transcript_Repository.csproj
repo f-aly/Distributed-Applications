@@ -403,8 +403,8 @@
     <Content Include="Views\Home\Actions.cshtml" />
     <Content Include="Views\Transcript\Index.cshtml" />
     <Content Include="Views\Transcript\Details.cshtml" />
-    <Content Include="Views\UploadTranscript\CourseDetails.cshtml" />
-    <Content Include="Views\UploadTranscript\Index.cshtml" />
+    <Content Include="Views\Transcript\UploadCourseDetails.cshtml" />
+    <Content Include="Views\Transcript\Upload.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -415,16 +415,15 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\UploadTranscript\YearResults.cshtml" />
+    <Content Include="Views\Transcript\UploadYearResults.cshtml" />
     <Content Include="Views\Home\NotImplemented.cshtml" />
-    <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Transcript\Edit.cshtml" />
     <Content Include="Views\Module\Add.cshtml" />
     <Content Include="Views\Module\List.cshtml" />
     <Content Include="Views\Course\Add.cshtml" />
     <Content Include="Views\Course\List.cshtml" />
-    <Content Include="Views\Instructor\InstructorRegistration.cshtml" />
-    <Content Include="Views\Instructor\ViewInstructors.cshtml" />
+    <Content Include="Views\Instructor\Add.cshtml" />
+    <Content Include="Views\Instructor\List.cshtml" />
     <Content Include="Views\Organization\Add.cshtml" />
     <Content Include="Views\Organization\List.cshtml" />
     <Content Include="Views\Transcript\Add.cshtml" />
@@ -432,7 +431,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SeeTranscripts\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

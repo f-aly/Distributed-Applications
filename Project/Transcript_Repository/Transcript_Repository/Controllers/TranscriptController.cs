@@ -135,6 +135,21 @@ namespace Transcript_Repository.Controllers
             return View(transcripts);
         }
 
+        public ActionResult Upload()
+        {
+            return View();
+        }
+
+        public ActionResult UploadCourseDetails()
+        {
+            return View();
+        }
+
+        public ActionResult UploadYearResults()
+        {
+            return View();
+        }
+
         public TranscriptDto GiveMeAMockTranscript(int TranscriptID = 999999, int counter = 0)
         {
 
@@ -169,5 +184,6 @@ namespace Transcript_Repository.Controllers
 
             return Transcript_mock;
         }
+
     }
 }
