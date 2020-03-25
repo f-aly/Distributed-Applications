@@ -24,15 +24,7 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
-        public ActionResult CourseDetails()
-        {
-            return View();
-        }
-
-        public ActionResult YearResults()
-        {
-            return View();
-        }
+ 
         
         public ActionResult UploadTranscripts()
         {
