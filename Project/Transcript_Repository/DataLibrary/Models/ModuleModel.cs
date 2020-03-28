@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 /// <summary>
 ///  For Back-End: Abotu what the data wants to store.
@@ -19,5 +20,10 @@ namespace DataLibrary.Models
         public int ModuleResult { get; set; }
         public string ModuleTrimester { get; set; }
         public string ModuleComment { get; set; }
+    }
+
+    public class ModuleDbContext : DbContext
+    {
+        public DbSet<ModuleModel> Modules { get; set; }
     }
 }

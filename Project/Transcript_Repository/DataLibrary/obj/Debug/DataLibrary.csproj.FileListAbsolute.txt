@@ -15,3 +15,8 @@ C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\
 C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.csproj.CopyComplete
 C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.dll
 C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.pdb
+C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\DataLibrary.dll.config
+C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.xml

@@ -509,3 +509,4 @@ C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\
 C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\Transcript_Repository\obj\Debug\Transcript_Repository.csproj.CopyComplete
 C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\Transcript_Repository\obj\Debug\Transcript_Repository.dll
 C:\Users\ja\Source\Repos\Distributed-Applications\Project\Transcript_Repository\Transcript_Repository\obj\Debug\Transcript_Repository.pdb
+C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\Transcript_Repository\bin\DataLibrary.dll.config

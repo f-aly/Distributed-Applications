@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Transcript_Repository.Models;
+using EntityState = System.Data.Entity.EntityState;
 using static DataLibrary.BusinessLogic.ModuleProcessor;
 
 namespace Transcript_Repository.Controllers
@@ -17,7 +19,7 @@ namespace Transcript_Repository.Controllers
         }
 
         // GET: Module/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
             return View();
         }
@@ -51,7 +53,12 @@ namespace Transcript_Repository.Controllers
         // GET: Module/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+
+            ViewBag.Message = "Edit A Module";
+            var data = LoadModules();
+            List<ModuleModel> modules = new List<ModuleModel>();
+            var module = modules.Where(m => m.ModuleId == id);
+            return View(module);
         }
 
         // POST: Module/Edit/5

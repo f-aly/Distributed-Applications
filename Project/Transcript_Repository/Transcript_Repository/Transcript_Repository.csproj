@@ -428,6 +428,7 @@
     <Content Include="Views\Organization\List.cshtml" />
     <Content Include="Views\Transcript\Add.cshtml" />
     <Content Include="Views\Transcript\List.cshtml" />
+    <Content Include="Views\Module\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
