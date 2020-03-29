@@ -20,3 +20,17 @@ C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\Da
 C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.xml
 C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\DataLibrary.dll.config
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\DataLibrary.dll
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\DataLibrary.pdb
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\Dapper.dll
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.dll
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\Dapper.xml
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.xml
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.csprojAssemblyReference.cache
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.csproj.CopyComplete
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.dll
+C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.pdb
