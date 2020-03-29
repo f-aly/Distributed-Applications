@@ -421,6 +421,8 @@
     <Content Include="Views\Transcript\Add.cshtml" />
     <Content Include="Views\Transcript\List.cshtml" />
     <Content Include="Views\Module\Edit.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Transcript\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
