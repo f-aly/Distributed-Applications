@@ -1,0 +1,81 @@
+﻿@model Transcript_Repository.ViewModels.TranscriptViewModel
+@{
+    ViewData["Title"] = "Search Transcripts";
+    int TranscriptCounter = 0;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"]</title>
+</head>
+
+
+<body>
+
+    <h2>@ViewData["Title"]</h2>
+    <hr />
+    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    <hr />
+
+    <div>
+        <!-- Table -->
+        <div>
+            <div style="border-width:thick; border-color:black; ">
+                <input type="text" id="myInput" onkeyup="mySearchFunction()" placeholder="Search for transcript ID's..">
+            </div>
+        </div>
+
+        <br />
+        <table id="myTable" class="table">
+            <tr>
+                <th>Transcript ID</th>
+                <th>Transcript Name</th>
+                <th>Student Name</th>
+                <th>Transcript Date</th>
+                <th>Access Status</th>
+                <th>Details</th>
+            </tr>
+
+            @foreach (var transcript_ in Model.Transcripts)
+            {
+                <tr>
+                    <td>@transcript_.Transcript_ID</td>
+                    <td>Transcript mock</td>
+                    <td>Mr Mocker</td>
+                    <td>10/05/2019</td>
+                    <td style="color:green">Public</td>
+                    <td>@Html.ActionLink("More Details", "Details", "Transcript", new { id = TranscriptCounter }, null)</td>
+                </tr>
+                { TranscriptCounter++; }
+            }
+
+        </table>
+        <script>
+            function mySearchFunction() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

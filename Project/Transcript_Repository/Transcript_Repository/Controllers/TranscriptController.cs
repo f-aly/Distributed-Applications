@@ -140,6 +140,20 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
+        public ActionResult Search()
+        {
+            var model = new TranscriptViewModel();
+            //create 10 mock transcripts and add them to transcript list
+            //basically this is replaced with get all transcripts this person should see
+            Random rnd = new Random();
+            int noTransc = rnd.Next(1, 15);
+            for (int i = 0; i < noTransc; i++)
+            {
+                model.Transcripts.Add(GiveMeAMockTranscript(999999, i));
+            }
+            return View(model);
+        }
+
         public ActionResult UploadCourseDetails()
         {
             return View();

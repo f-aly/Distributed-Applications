@@ -1,10 +1,16 @@
 ﻿@model Transcript_Repository.ViewModels.TranscriptViewModel
 @{
-    ViewBag.Title = "View Transcript";
+    ViewBag.Title = "View Transcripts";
+    int TranscriptCounter = 0;
 }
 
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
+<hr />
+    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<hr />
+
 <!DOCTYPE html>
 
 <html>
@@ -29,17 +35,8 @@
                     <th>Transcript Name</th>
                     <th>Student Name</th>
                     <th>Transcript Date</th>
-                    <th>Status</th>
+                    <th>Access Status</th>
                     <th>Details</th>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>Transcript 1</td>
-                    <td>Ieaun Roberts</td>
-                    <td>10/05/2020</td>
-                    <td style="color:green">Access granted</td>
-                    <td>@Html.ActionLink("More Details", "Details", "Transcript")</td>
                 </tr>
 
                 @foreach (var transcript_ in Model.Transcripts)
@@ -49,35 +46,19 @@
                         <td>Transcript mock</td>
                         <td>Mr Mocker</td>
                         <td>10/05/2019</td>
-                        <td style="color:green">Access granted</td>
-                        <td>@Html.ActionLink("More Details", "Details", "Transcript")</td>
+                        <td style="color:green">Public</td>
+                        <td>@Html.ActionLink("More Details", "Details", "Transcript", new { id = TranscriptCounter }, null)</td>
                     </tr>
+                    { TranscriptCounter++; }
                 }
 
-
-                <tr>
-                    <td>2</td>
-                    <td>Transcript 2</td>
-                    <td>Ieaun Roberts</td>
-                    <td>10/05/2019</td>
-                    <td style="color:goldenrod">Pending</td>
-                    <td>Unavailabe</td>
-
-                <tr>
-                    <td>3</td>
-                    <td>Transcript 1</td>
-                    <td>Vasilica Androsca</td>
-                    <td>10/05/2020</td>
-                    <td style="color:green">Access granted</td>
-                    <td>@Html.ActionLink("More Details", "Details", "Transcript")</td>
-                </tr>
 
                 <tr>
                     <td>4</td>
                     <td>Transcript 1</td>
                     <td>Farah Aly</td>
                     <td>10/05/2020</td>
-                    <td style="color:red">Access denied</td>
+                    <td style="color:red">Private</td>
                     <td>Unavailabe</td>
                 </tr>
 

@@ -23,9 +23,28 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Modules", "List", "Module")</li>
-                    <li>@Html.ActionLink("Transcripts", "Index", "Transcript")</li>
+
+                    @*Add a check to see which user is signed in and ommit some of 
+                        these results (e.g student shouldnt be able to see the upload dropdown item)*@
+
+                    <li class="nav-item dropdown-toggle">
+                        <a class="nav-link dropdown-toggle" href="@Url.Action( "Index", "Transcript")" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Transcripts
+                        </a>
+                       
+                        <div class="text">
+                            <div class="dropdown-menu"  style="background-color:steelblue;" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="@Url.Action( "Index", "Transcript")" style="color :white">View Transcripts</a> <br />
+                                <a class="dropdown-item" href="@Url.Action( "Upload", "Transcript")" style="color :white">Upload Transcripts</a> <br />
+                                <a class="dropdown-item" href="@Url.Action( "Search", "Transcript")" style="color :white">Search Transcripts</a> <br />
+                            </div>
+                        </div>
+                    </li>
+
                     <li>@Html.ActionLink("Actions", "Actions", "Home")</li>
+                    <li>@Html.ActionLink("Account", "Details", "Account")</li>
                     <!--<li>@Html.ActionLink("Contact", "Contact", "Home")</li>-->
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
