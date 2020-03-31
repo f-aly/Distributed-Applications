@@ -14,6 +14,7 @@ namespace Transcript_Repository.DtoModels.Transcript
         public int EnrolledCourseID { get; set; }
         public List<ModuleDto> Modules_Taken { get; set; }
         public int Transcript_ID { get; set; }
+        public bool isPublic_ { get; set; }
         
     }
 }

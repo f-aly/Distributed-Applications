@@ -4,3 +4,13 @@ C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\TR
 C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\TRS_Database\bin\Debug\TRS_Database.dll
 C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\TRS_Database\bin\Debug\TRS_Database.pdb
 C:\Users\Farah\Desktop\Distributed-Applications\Project\Transcript_Repository\TRS_Database\obj\Debug\TRS_Database.sqlprojAssemblyReference.cache
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\bin\Debug\TRS_Database.dacpac
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\bin\Debug\TRS_Database.dll
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\bin\Debug\TRS_Database.pdb
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\obj\Debug\TRS_Database.sqlprojAssemblyReference.cache
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\obj\Debug\Model.xml
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\obj\Debug\refactor.xml
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\obj\Debug\postdeploy.sql
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\obj\Debug\predeploy.sql
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\obj\Debug\TRS_Database.dll
+C:\Users\user\Desktop\d\Project\Transcript_Repository\TRS_Database\obj\Debug\TRS_Database.pdb
