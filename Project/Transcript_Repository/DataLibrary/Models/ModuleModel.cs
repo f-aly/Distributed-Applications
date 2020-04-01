@@ -21,9 +21,4 @@ namespace DataLibrary.Models
         public string ModuleTrimester { get; set; }
         public string ModuleComment { get; set; }
     }
-
-    public class ModuleDbContext : DbContext
-    {
-        public DbSet<ModuleModel> Modules { get; set; }
-    }
 }

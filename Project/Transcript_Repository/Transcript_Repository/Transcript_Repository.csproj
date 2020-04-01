@@ -50,7 +50,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -225,13 +228,46 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Course.cs">
+      <DependentUpon>TRS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CourseModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Instructor.cs">
+      <DependentUpon>TRS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\InstructorModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Module.cs">
+      <DependentUpon>TRS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ModuleModel.cs" />
+    <Compile Include="Models\Organization.cs">
+      <DependentUpon>TRS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\OrganizationModel.cs" />
+    <Compile Include="Models\Student.cs">
+      <DependentUpon>TRS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Transcript.cs">
+      <DependentUpon>TRS_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TranscriptModel.cs" />
+    <Compile Include="Models\TRS_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TRS_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRS_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TRS_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRS_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TRS_Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="DtoModels\Module\ModuleDto.cs" />
@@ -252,6 +288,16 @@
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Models\TRS_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TRS_Model.edmx</DependentUpon>
+      <LastGenOutput>TRS_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TRS_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TRS_Model.edmx</DependentUpon>
+      <LastGenOutput>TRS_Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -276,6 +322,13 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <EntityDeploy Include="Models\TRS_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TRS_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TRS_Model.edmx.diagram">
+      <DependentUpon>TRS_Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -411,7 +464,6 @@
     <Content Include="Views\Home\NotImplemented.cshtml" />
     <Content Include="Views\Transcript\Edit.cshtml" />
     <Content Include="Views\Module\Add.cshtml" />
-    <Content Include="Views\Module\List.cshtml" />
     <Content Include="Views\Course\Add.cshtml" />
     <Content Include="Views\Course\List.cshtml" />
     <Content Include="Views\Instructor\Add.cshtml" />
@@ -420,9 +472,12 @@
     <Content Include="Views\Organization\List.cshtml" />
     <Content Include="Views\Transcript\Add.cshtml" />
     <Content Include="Views\Transcript\List.cshtml" />
-    <Content Include="Views\Module\Edit.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Transcript\Search.cshtml" />
+    <Content Include="Views\Module\Details.cshtml" />
+    <Content Include="Views\Module\Index.cshtml" />
+    <Content Include="Views\Module\Edit.cshtml" />
+    <Content Include="Views\Module\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -437,6 +492,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">

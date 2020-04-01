@@ -1,19 +1,16 @@
-﻿@model IEnumerable<Transcript_Repository.Models.ModuleModel>
+﻿@model IEnumerable<Transcript_Repository.Models.Module>
 
 @{
-    ViewBag.Title = "View Modules";
+    ViewBag.Title = "Index";
 }
 
-<h2>View Modules</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Add Module", "Add")
+    @Html.ActionLink("Add New", "Add")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ModuleId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.ModuleTitle)
         </th>
@@ -32,9 +29,6 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ModuleId)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ModuleTitle)
         </td>
         <td>
@@ -47,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.ModuleComment)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ModuleId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ModuleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ModuleId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
 }

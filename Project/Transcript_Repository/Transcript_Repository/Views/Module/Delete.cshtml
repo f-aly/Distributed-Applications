@@ -1,0 +1,56 @@
+﻿@model Transcript_Repository.Models.Module
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <div class="dl-horizontal">
+
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleTitle)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.ModuleTitle)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleResult)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.ModuleResult)
+        </span>
+        <br />
+
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleTrimester)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.ModuleTrimester)
+        </span>
+
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleComment)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.ModuleComment)
+        </span>
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
