@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using Transcript_Repository.DtoModels.CourseContent;
 
 namespace Transcript_Repository.Models
 {
@@ -29,5 +31,14 @@ namespace Transcript_Repository.Models
         [Display(Name = "Module Comment")]
         [Required(ErrorMessage = "Please enter a valid Module Comment.")]
         public string ModuleComment { get; set; }
+        public List<int> CourseIds { get; set; }
+        public List<SelectListItem> AvailableCourses { get; set; }
+
+
+        public ModuleModel()
+        {
+            CourseIds = new List<int>();
+            AvailableCourses = new List<SelectListItem>();
+        }
     }
 }

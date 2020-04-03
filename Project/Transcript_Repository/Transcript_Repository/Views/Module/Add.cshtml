@@ -54,6 +54,13 @@
                 @Html.ValidationMessageFor(model => model.ModuleComment, "", new { @class = "text-danger" })
             </div>
         </div>
+        
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.Label("Select Courses",htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ListBoxFor(model => model.CourseIds, Model.AvailableCourses, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
