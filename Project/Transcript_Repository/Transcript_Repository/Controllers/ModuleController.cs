@@ -7,7 +7,9 @@ using System.Web.Mvc;
 using Transcript_Repository.Models;
 using EntityState = System.Data.Entity.EntityState;
 using System.Data.Entity;
-//using static DataLibrary.BusinessLogic.ModuleProcessor;
+using static DataLibrary.BusinessLogic.ModuleProcessor;
+using static DataLibrary.BusinessLogic.CourseProcessor;
+
 
 namespace Transcript_Repository.Controllers
 {
@@ -37,8 +39,19 @@ namespace Transcript_Repository.Controllers
         {
 
             ViewBag.Message = "Add A Module";
+            var courses = LoadCourses();
 
-            return View();
+            var model = new ModuleModel();
+
+            var availableCourses = courses.Select(x => new SelectListItem
+            {
+                Text = x.CourseName + " - " + x.CourseId,
+                Value = x.Id.ToString()
+            }).ToList();
+            model.AvailableCourses = availableCourses;
+            model.CourseIds = courses.Select(x => x.Id).ToList();
+
+            return View(model);
         }
 
         // POST: Module/Add
