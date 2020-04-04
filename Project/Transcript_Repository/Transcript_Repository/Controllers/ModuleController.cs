@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Transcript_Repository.Models;
+using EntityState = System.Data.Entity.EntityState;
+using System.Data.Entity;
 using static DataLibrary.BusinessLogic.ModuleProcessor;
 using static DataLibrary.BusinessLogic.CourseProcessor;
 
@@ -12,16 +15,23 @@ namespace Transcript_Repository.Controllers
 {
     public class ModuleController : Controller
     {
-        // GET: Module
+        // GET: Module/Index
         public ActionResult Index()
         {
-            return View();
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Modules.ToList());
+
+            }
         }
 
         // GET: Module/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Modules.Where(m => m.Id == id).FirstOrDefault());
+            }
         }
 
         // GET: Module/Create
@@ -47,34 +57,58 @@ namespace Transcript_Repository.Controllers
         // POST: Module/Create
         [HttpPost]
         [ValidateAntiForgeryToken] // captures data
-        public ActionResult Add(ModuleModel model)
+        public ActionResult Add(Module module)
         {
-            if (ModelState.IsValid) // if they followed the validation rules set in ModuleModel
+
+            try
             {
-                int moduleRecords = CreateModule(model.ModuleId,
-                    model.ModuleTitle,
-                    model.ModuleResult,
-                    model.ModuleTrimester,
-                    model.ModuleComment);
-                return RedirectToAction("List"); // if added succesfully, go to ViewModules page
+                using (TRS_DbModels dbModel = new TRS_DbModels())
+                {
+                    dbModel.Modules.Add(module);
+                    dbModel.SaveChanges();
+                }
+                return RedirectToAction("Index");
             }
-            return View();
+            catch
+            {
+                return View();
+            }
+            //if (ModelState.IsValid) // if they followed the validation rules set in ModuleModel
+            //{
+            //    int moduleRecords = CreateModule(model.ModuleId,
+            //        model.ModuleTitle,
+            //        model.ModuleResult,
+            //        model.ModuleTrimester,
+            //        model.ModuleComment);
+            //    return RedirectToAction("List"); // if added succesfully, go to ViewModules page
+            //}
+            //return View();
         }
 
         // GET: Module/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+
+            ViewBag.Message = "Edit A Module";
+
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Modules.Where(m => m.Id == id).FirstOrDefault());
+            }
         }
 
         // POST: Module/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Module module)
         {
             try
             {
                 // TODO: Add update logic here
-
+                using (TRS_DbModels dbModels = new TRS_DbModels())
+                {
+                    dbModels.Entry(module).State = EntityState.Modified;
+                    dbModels.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -86,7 +120,12 @@ namespace Transcript_Repository.Controllers
         // GET: Module/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ViewBag.Message = "Delete A Module";
+
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Modules.Where(m => m.Id == id).FirstOrDefault());
+            }
         }
 
         // POST: Module/Delete/5
@@ -97,6 +136,12 @@ namespace Transcript_Repository.Controllers
             {
                 // TODO: Add delete logic here
 
+                using (TRS_DbModels dbModel = new TRS_DbModels())
+                {
+                    Module module = dbModel.Modules.Where(m => m.Id == id).FirstOrDefault();
+                    dbModel.Modules.Remove(module);
+                    dbModel.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -105,25 +150,25 @@ namespace Transcript_Repository.Controllers
             }
         }
 
-        public ActionResult List()
-        {
-            ViewBag.Message = "Modules List";
+        //public ActionResult List()
+        //{
+        //    ViewBag.Message = "Modules List";
 
-            var data = LoadModules();
-            List<ModuleModel> modules = new List<ModuleModel>();
-            foreach (var module in data)
-            {
-                modules.Add(new ModuleModel
-                {
-                    ModuleId = module.ModuleId,
-                    ModuleTitle = module.ModuleTitle,
-                    ModuleResult = module.ModuleResult,
-                    ModuleTrimester = module.ModuleTrimester,
-                    ModuleComment = module.ModuleComment
-                });
-            }
+        //    var data = LoadModules();
+        //    List<ModuleModel> modules = new List<ModuleModel>();
+        //    foreach (var module in data)
+        //    {
+        //        modules.Add(new ModuleModel
+        //        {
+        //            ModuleId = module.ModuleId,
+        //            ModuleTitle = module.ModuleTitle,
+        //            ModuleResult = module.ModuleResult,
+        //            ModuleTrimester = module.ModuleTrimester,
+        //            ModuleComment = module.ModuleComment
+        //        });
+        //    }
 
-            return View(modules);
-        }
+        //    return View(modules);
+        //}
     }
 }

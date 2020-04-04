@@ -1,8 +1,12 @@
 ﻿@{
     ViewBag.Title = "Actions";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
+<hr />
+    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<hr />
 
 <!DOCTYPE html>
 
@@ -18,14 +22,14 @@
             <div class="panel-heading">Notifications</div>
 
             <!-- Table -->
-            <table id="myTable" class="table" border="1" >
+            <table id="ActionTable" class="table" border="1">
                 <tr>
                     <th>Company name</th>
                     <th>Type</th>
                     <th>Date requested</th>
                     <th>Expiry date</th>
                     <th>Message</th>
-                    <th scope="col" colspan="2" >Action</th>
+                    <th scope="col" colspan="2">Action</th>
                 </tr>
 
                 <tr>
@@ -34,8 +38,8 @@
                     <td>10/05/2020</td>
                     <td style="color:orange">10/06/2020</td>
                     <td>Give me all your data or i hack u</td>
-                    <td style="color:blue">Accept</td>
-                    <td style="color:red">Decline</td>
+                    <td style="color:blue"><button class="RemoveMe(this);" type="button">Accept</button></td>
+                    <td style="color:red"><button class="RemoveMe(this);" type="button">Decline</button></td>
                 </tr>
 
                 <tr>
@@ -44,12 +48,11 @@
                     <td>10/05/2020</td>
                     <td style="color:orange">20/05/2020</td>
                     <td>Zucc has sent you a friend request</td>
-                    <td  style="color:blue">Accept</td>
-                    <td style="color:red">Decline</td>
+                    <td style="color:blue"> <button class="RemoveMe(this);" type="button">Accept</button> </td>
+                    <td style="color:red"><button class="RemoveMe(this);" value="delete" type="button">Decline</button></td>
                 </tr>
 
             </table>
-          
         </div>
 </body>
 </html>

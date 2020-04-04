@@ -1,0 +1,86 @@
+﻿@model Transcript_Repository.Models.Module
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+
+
+    <div class="dl-horizontal">
+
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleTitle)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.ModuleTitle)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleResult)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.ModuleResult)
+        </span>
+        <br />
+
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleTrimester)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.ModuleTrimester)
+        </span>
+
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.ModuleComment)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.ModuleComment)
+        </span>
+    </div>
+    <br />
+
+    @*<dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ModuleTitle)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ModuleTitle)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModuleResult)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModuleResult)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModuleTrimester)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModuleTrimester)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModuleComment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModuleComment)
+            </dd>
+
+        </dl>*@
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,8 +1,23 @@
 ﻿@model Transcript_Repository.ViewModels.TranscriptViewModel
 @{
-    ViewBag.Title = "Detailed Transcript";
+    ViewData["Title"] = "Detailed Transcript";
+    string UserType = "Student";
+    //string UserType = "Instructor";
+    //string UserType = "Organization
+    string status = "";
+
+    if (UserType != "Instructor") { status = "disabled"; }
+
 }
-<h3>@ViewBag.Message</h3>
+
+
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<hr />
 
 <!DOCTYPE html>
 
@@ -19,13 +34,13 @@
                 <h4>Transcript ID      :<span id="TranscriptID">@Model.Transcripts[0].Transcript_ID</span><br></h4>
                 <h4>Student ID    :<span id="StudentName"></span><br></h4>
                 <h4>Transcript Date    :<span id="TranscriptDate">null</span><br></h4>
-                <div>                  
+                <div>
                     <div class="panel panel-primary" style="border-color:#24221f;">
                         <!-- Default panel contents -->
                         <div class="panel-heading;" style="background-color:#24221f; color:whitesmoke;">Modules</div>
-                     
 
-                        @foreach (var Module in  Model.Transcripts[0].Modules_Taken)
+
+                        @foreach (var Module in Model.Transcripts[0].Modules_Taken)
                         {
                             <div class="panel-body">
                                 <div class="row">
@@ -40,13 +55,13 @@
                                     </div>
 
                                     <form action="/action_page.php">
-                                        <div class="col-md-2">
-                                            <input size="400" id="Module_t;" placeholder="Unavailable" type="text" disabled /><br>
-                                            <input size="400" id="Module_t;" placeholder="Unavailable" type="text" disabled /><br>
-                                            <input size="7" id="Module_ID;" placeholder=@Module.Module_ID type="text" disabled /><br>
-                                            <input class="m-md-2" size="15" id="Result_id;" placeholder=@Module.ModuleGrade type="text" disabled /><br>
-                                            <input size="4" id="Trimester_id;" placeholder=@Model.Transcripts[0].SemesterID type="text" disabled /><br>
-                                            <input size="400" id="Comments;" placeholder="ACW 1: @Module.ACWGrade%, ACW 2: 74%, ACW 3: " type="text" disabled />
+                                        <div id="Module_data" class="col-md-2">
+                                            <input size="400" id="Module_t;" placeholder="Unavailable" type="text" @status /><br>
+                                            <input size="400" id="Module_t;" placeholder="Unavailable" type="text" @status /><br>
+                                            <input size="7" id="Module_ID;" placeholder=@Module.Module_ID type="text" @status /><br>
+                                            <input class="m-md-2" size="15" id="Result_id;" placeholder=@Module.ModuleGrade type="text" @status /><br>
+                                            <input size="4" id="Trimester_id;" placeholder=@Model.Transcripts[0].SemesterID type="text" @status /><br>
+                                            <input size="400" id="Comments;" placeholder="ACW 1: @Module.ACWGrade%, ACW 2: 74%, ACW 3: " @status type="text" />
                                         </div>
                                     </form>
 
@@ -82,3 +97,4 @@
     </div>
 </body>
 </html>
+

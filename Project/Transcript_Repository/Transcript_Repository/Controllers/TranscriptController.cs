@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using Transcript_Repository.DtoModels.Module;
@@ -150,6 +151,20 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
+        public ActionResult Search()
+        {
+            var model = new TranscriptViewModel();
+            //create 10 mock transcripts and add them to transcript list
+            //basically this is replaced with get all transcripts this person should see
+            Random rnd = new Random();
+            int noTransc = rnd.Next(1, 15);
+            for (int i = 0; i < noTransc; i++)
+            {
+                model.Transcripts.Add(GiveMeAMockTranscript(999999, i));
+            }
+            return View(model);
+        }
+
         public TranscriptDto GiveMeAMockTranscript(int TranscriptID = 999999, int counter = 0)
         {
 
@@ -168,10 +183,20 @@ namespace Transcript_Repository.Controllers
                     ACWGrade = rnd.Next(1, 100),
                     ModuleGrade = rnd.Next(1, 100),
                     Module_ACWs = ModuleName + i,
-                    Module_ID = rnd.Next(100000, 999999)
+                    Module_ID = rnd.Next(100000, 999999),
+                   
                 };
                 Mock_Modules.Add(newModule);
+                Thread.Sleep(1);
             }
+          
+            int Public_Access = rnd.Next(1, 3);
+            bool access;
+            if (Public_Access == 1)
+            {
+                access = true;
+            }
+            else { access = false; }
 
             //mock transcript
             TranscriptDto Transcript_mock = new TranscriptDto
@@ -179,9 +204,11 @@ namespace Transcript_Repository.Controllers
                 EnrolledCourseID = 20,
                 SemesterID = rnd.Next(1, 3),
                 Transcript_ID = TranscriptID + counter, //999999
-                Modules_Taken = Mock_Modules//6 fake modules
+                Modules_Taken = Mock_Modules,//6 fake modules
+                isPublic_ = access
             };
 
+            Thread.Sleep(1);
             return Transcript_mock;
         }
 

@@ -61,6 +61,11 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
+        public ActionResult Details()
+        {
+            return View();
+        }
+
         //
         // POST: /Account/Login
         [HttpPost]

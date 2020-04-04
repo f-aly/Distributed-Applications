@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TRS_DatabaseModelStoreContainer" CdmEntityContainer="TRS_DbModels">
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="TRS_DatabaseModel.Course">
+        <MappingFragment StoreEntitySet="Course">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="CourseQualification" ColumnName="CourseQualification" />
+          <ScalarProperty Name="CourseResult" ColumnName="CourseResult" />
+          <ScalarProperty Name="CourseLength" ColumnName="CourseLength" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instructors">
+      <EntityTypeMapping TypeName="TRS_DatabaseModel.Instructor">
+        <MappingFragment StoreEntitySet="Instructor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstructorId" ColumnName="InstructorId" />
+          <ScalarProperty Name="InstructorFirstName" ColumnName="InstructorFirstName" />
+          <ScalarProperty Name="InstructorLastName" ColumnName="InstructorLastName" />
+          <ScalarProperty Name="InstructorEmail" ColumnName="InstructorEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="TRS_DatabaseModel.Module">
+        <MappingFragment StoreEntitySet="Module">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ModuleId" ColumnName="ModuleId" />
+          <ScalarProperty Name="ModuleTitle" ColumnName="ModuleTitle" />
+          <ScalarProperty Name="ModuleResult" ColumnName="ModuleResult" />
+          <ScalarProperty Name="ModuleTrimester" ColumnName="ModuleTrimester" />
+          <ScalarProperty Name="ModuleComment" ColumnName="ModuleComment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="TRS_DatabaseModel.Organization">
+        <MappingFragment StoreEntitySet="Organization">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="OrganizationEmail" ColumnName="OrganizationEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="TRS_DatabaseModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transcripts">
+      <EntityTypeMapping TypeName="TRS_DatabaseModel.Transcript">
+        <MappingFragment StoreEntitySet="Transcript">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TranscriptId" ColumnName="TranscriptId" />
+          <ScalarProperty Name="TranscriptDate" ColumnName="TranscriptDate" />
+          <ScalarProperty Name="TranscriptStatus" ColumnName="TranscriptStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
