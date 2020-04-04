@@ -241,7 +241,6 @@
     <Compile Include="Models\Module.cs">
       <DependentUpon>TRS_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModuleModel.cs" />
     <Compile Include="Models\Organization.cs">
       <DependentUpon>TRS_Model.tt</DependentUpon>
     </Compile>
@@ -463,9 +462,6 @@
     <Content Include="Views\Transcript\UploadYearResults.cshtml" />
     <Content Include="Views\Home\NotImplemented.cshtml" />
     <Content Include="Views\Transcript\Edit.cshtml" />
-    <Content Include="Views\Module\Add.cshtml" />
-    <Content Include="Views\Course\Add.cshtml" />
-    <Content Include="Views\Course\List.cshtml" />
     <Content Include="Views\Instructor\Add.cshtml" />
     <Content Include="Views\Instructor\List.cshtml" />
     <Content Include="Views\Organization\Add.cshtml" />
@@ -478,6 +474,12 @@
     <Content Include="Views\Module\Index.cshtml" />
     <Content Include="Views\Module\Edit.cshtml" />
     <Content Include="Views\Module\Delete.cshtml" />
+    <Content Include="Views\Module\Add.cshtml" />
+    <Content Include="Views\Course\Index.cshtml" />
+    <Content Include="Views\Course\Add.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,54 @@
+﻿@model Transcript_Repository.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <div class="dl-horizontal">
+        <label>
+            @Html.DisplayNameFor(model => model.CourseId)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.CourseId)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.CourseName)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.CourseQualification)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.CourseQualification)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.CourseResult)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.CourseResult)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.CourseLength)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.CourseLength)
+        </span>
+        <br />
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

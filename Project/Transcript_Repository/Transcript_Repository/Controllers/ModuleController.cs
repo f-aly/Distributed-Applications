@@ -34,7 +34,7 @@ namespace Transcript_Repository.Controllers
             }
         }
 
-        // GET: Module/Create
+        // GET: Module/Add
         public ActionResult Add()
         {
 
@@ -43,7 +43,7 @@ namespace Transcript_Repository.Controllers
             return View();
         }
 
-        // POST: Module/Create
+        // POST: Module/Add
         [HttpPost]
         [ValidateAntiForgeryToken] // captures data
         public ActionResult Add(Module module)
