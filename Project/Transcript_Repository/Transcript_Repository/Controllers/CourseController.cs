@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,13 +15,20 @@ namespace Transcript_Repository.Controllers
         // GET: Course
         public ActionResult Index()
         {
-            return View();
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Courses.ToList());
+
+            }
         }
 
         // GET: Course/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Courses.Where(m => m.Id == id).FirstOrDefault());
+            }
         }
 
         // GET: Course/Add
@@ -34,34 +42,48 @@ namespace Transcript_Repository.Controllers
         // POST: Course/Add
         [HttpPost]
         [ValidateAntiForgeryToken] // captures data
-        public ActionResult Add(CourseModel model)
+        public ActionResult Add(Course course)
         {
-            if (ModelState.IsValid) // if they followed the validation rules set in CourseModel
+
+            try
             {
-                int courseRecords = CreateCourse(model.CourseId,
-                    model.CourseName,
-                    model.CourseQualification,
-                    model.CourseResult,
-                    model.CourseLength);
-                return RedirectToAction("List"); // if added succesfully, go to ViewModules page
+                using (TRS_DbModels dbModel = new TRS_DbModels())
+                {
+                    dbModel.Courses.Add(course);
+                    dbModel.SaveChanges();
+                }
+                return RedirectToAction("Index");
             }
-            return View();
+            catch
+            {
+                return View();
+            }
         }
 
         // GET: Course/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+
+            ViewBag.Message = "Edit A Course";
+
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Courses.Where(m => m.Id == id).FirstOrDefault());
+            }
         }
 
         // POST: Course/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Course course)
         {
             try
             {
                 // TODO: Add update logic here
-
+                using (TRS_DbModels dbModels = new TRS_DbModels())
+                {
+                    dbModels.Entry(course).State = EntityState.Modified;
+                    dbModels.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -73,7 +95,12 @@ namespace Transcript_Repository.Controllers
         // GET: Course/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            ViewBag.Message = "Delete A Course";
+
+            using (TRS_DbModels dbModel = new TRS_DbModels())
+            {
+                return View(dbModel.Courses.Where(m => m.Id == id).FirstOrDefault());
+            }
         }
 
         // POST: Course/Delete/5
@@ -84,6 +111,12 @@ namespace Transcript_Repository.Controllers
             {
                 // TODO: Add delete logic here
 
+                using (TRS_DbModels dbModel = new TRS_DbModels())
+                {
+                    Course course = dbModel.Courses.Where(m => m.Id == id).FirstOrDefault();
+                    dbModel.Courses.Remove(course);
+                    dbModel.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             catch
@@ -92,25 +125,25 @@ namespace Transcript_Repository.Controllers
             }
         }
 
-        public ActionResult List()
-        {
-            ViewBag.Message = "Courses List";
+        //public ActionResult List()
+        //{
+        //    ViewBag.Message = "Courses List";
 
-            var data = LoadCourses();
-            List<CourseModel> courses = new List<CourseModel>();
-            foreach (var course in data)
-            {
-                courses.Add(new CourseModel
-                {
-                    CourseId = course.CourseId,
-                    CourseName = course.CourseName,
-                    CourseQualification = course.CourseQualification,
-                    CourseResult = course.CourseResult,
-                    CourseLength = course.CourseLength
-                });
-            }
+        //    var data = LoadCourses();
+        //    List<CourseModel> courses = new List<CourseModel>();
+        //    foreach (var course in data)
+        //    {
+        //        courses.Add(new CourseModel
+        //        {
+        //            CourseId = course.CourseId,
+        //            CourseName = course.CourseName,
+        //            CourseQualification = course.CourseQualification,
+        //            CourseResult = course.CourseResult,
+        //            CourseLength = course.CourseLength
+        //        });
+        //    }
 
-            return View(courses);
-        }
+        //    return View(courses);
+        //}
     }
 }

@@ -1,4 +1,4 @@
-﻿@model Transcript_Repository.Models.Module
+﻿@model Transcript_Repository.Models.Course
 
 @{
     ViewBag.Title = "Delete";
@@ -9,49 +9,48 @@
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <hr />
+
     <div class="dl-horizontal">
         <label>
-            @Html.DisplayNameFor(model => model.ModuleId)
+            @Html.DisplayNameFor(model => model.CourseId)
         </label>
+
         <span>
-            @Html.DisplayFor(model => model.ModuleId)
+            @Html.DisplayFor(model => model.CourseId)
         </span>
         <br />
         <label>
-            @Html.DisplayNameFor(model => model.ModuleTitle)
+            @Html.DisplayNameFor(model => model.CourseName)
         </label>
         <span>
-            @Html.DisplayFor(model => model.ModuleTitle)
+            @Html.DisplayFor(model => model.CourseName)
         </span>
         <br />
         <label>
-            @Html.DisplayNameFor(model => model.ModuleResult)
+            @Html.DisplayNameFor(model => model.CourseQualification)
         </label>
-
         <span>
-            @Html.DisplayFor(model => model.ModuleResult)
+            @Html.DisplayFor(model => model.CourseQualification)
         </span>
         <br />
-
         <label>
-            @Html.DisplayNameFor(model => model.ModuleTrimester)
+            @Html.DisplayNameFor(model => model.CourseResult)
         </label>
-
         <span>
-            @Html.DisplayFor(model => model.ModuleTrimester)
+            @Html.DisplayFor(model => model.CourseResult)
         </span>
-
         <br />
         <label>
-            @Html.DisplayNameFor(model => model.ModuleComment)
+            @Html.DisplayNameFor(model => model.CourseLength)
         </label>
-
         <span>
-            @Html.DisplayFor(model => model.ModuleComment)
+            @Html.DisplayFor(model => model.CourseLength)
         </span>
+        <br />
     </div>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
