@@ -39,19 +39,8 @@ namespace Transcript_Repository.Controllers
         {
 
             ViewBag.Message = "Add A Module";
-            var courses = LoadCourses();
 
-            var model = new ModuleModel();
-
-            var availableCourses = courses.Select(x => new SelectListItem
-            {
-                Text = x.CourseName + " - " + x.CourseId,
-                Value = x.Id.ToString()
-            }).ToList();
-            model.AvailableCourses = availableCourses;
-            model.CourseIds = courses.Select(x => x.Id).ToList();
-
-            return View(model);
+            return View();
         }
 
         // POST: Module/Create

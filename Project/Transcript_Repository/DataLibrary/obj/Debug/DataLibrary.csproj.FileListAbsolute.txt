@@ -34,3 +34,9 @@ C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\Data
 C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.csproj.CopyComplete
 C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.dll
 C:\Users\user\Desktop\d\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.pdb
+C:\Users\ja\source\repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\DataLibrary.dll.config
+C:\Users\ja\source\repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.dll
+C:\Users\ja\source\repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ja\source\repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.xml
+C:\Users\ja\source\repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ja\source\repos\Distributed-Applications\Project\Transcript_Repository\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
