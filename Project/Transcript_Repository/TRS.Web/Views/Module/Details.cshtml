@@ -1,4 +1,4 @@
-﻿@model Transcript_Repository.Models.Module
+﻿@model TRS.Web.Models.Module.ModuleViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -13,36 +13,28 @@
     <div class="dl-horizontal">
 
         <label>
-            @Html.DisplayNameFor(model => model.ModuleTitle)
+            @Html.DisplayNameFor(model => model.Module.Title)
         </label>
         <span>
-            @Html.DisplayFor(model => model.ModuleTitle)
-        </span>
-        <br />
-        <label>
-            @Html.DisplayNameFor(model => model.ModuleResult)
-        </label>
-
-        <span>
-            @Html.DisplayFor(model => model.ModuleResult)
+            @Html.DisplayFor(model => model.Module.Title)
         </span>
         <br />
 
         <label>
-            @Html.DisplayNameFor(model => model.ModuleTrimester)
+            @Html.DisplayNameFor(model => model.Module.Trimester)
         </label>
 
         <span>
-            @Html.DisplayFor(model => model.ModuleTrimester)
+            @Html.DisplayFor(model => model.Module.Trimester)
         </span>
 
         <br />
         <label>
-            @Html.DisplayNameFor(model => model.ModuleComment)
+            @Html.DisplayNameFor(model => model.Module.Comment)
         </label>
 
         <span>
-            @Html.DisplayFor(model => model.ModuleComment)
+            @Html.DisplayFor(model => model.Module.Comment)
         </span>
     </div>
     <br />
@@ -81,6 +73,6 @@
         </dl>*@
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Module.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

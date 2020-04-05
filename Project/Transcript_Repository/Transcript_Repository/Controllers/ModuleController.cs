@@ -7,8 +7,6 @@ using System.Web.Mvc;
 using Transcript_Repository.Models;
 using EntityState = System.Data.Entity.EntityState;
 using System.Data.Entity;
-using static DataLibrary.BusinessLogic.ModuleProcessor;
-using static DataLibrary.BusinessLogic.CourseProcessor;
 
 
 namespace Transcript_Repository.Controllers

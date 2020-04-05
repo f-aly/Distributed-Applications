@@ -1,0 +1,60 @@
+﻿@{
+   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <br />
+    <div>
+        <div class="panel panel-primary" style="border-color:#24221f;">
+            <!-- Default panel contents -->
+            <div class="panel-heading;" style="background-color:#24221f; color:whitesmoke;">Modules</div>
+            <br />
+            <div style="text-align:center">
+                <div >
+                    <spam>Year:  <input size="4" id="Qualification_Type;" placeholder="1" type="text" /></spam><br>
+                </div>
+            </div>
+            <hr style="width:500px; border-color:black" />
+            @for (int i = 1; i <= 6; i++)
+            {
+                <div class="panel-body">
+                    <div class="row">
+               
+                        <div class="col-md-2">
+                            <b>Module @i</b>
+                            <label>Module Title:</label> <br />
+                            <label>Module ID:</label> <br />
+                            <label>Result:</label> <br />
+                            <label>Trimester ID:</label> <br />
+                            <label>Comments:</label> 
+                        </div>
+
+                        <div class="col-md-2">
+                            <br />
+                            <input size="400" id="Program_Name;" placeholder="Embedded Systems" type="text" /><br>
+                            <input size="7" id="Student_ID;" placeholder="700069" type="text" /><br>
+                            <input class="m-md-2" size="15" id="Student_Name;" placeholder="64" type="text" /><br>
+                            <input size="4" id="Qualification_Type;" placeholder="1" type="text" /><br>
+                            <input size="400" id="Results;" placeholder="ACW 1: 50%, ACW 2: 74%" type="text" />
+                        </div>
+
+                    </div>
+                </div>
+                <hr style="width:500px; border-color:black" />
+            }
+            @Html.ActionLink("Add another year", "UploadYearResults") <br />
+            @Html.ActionLink("Review", "NotImplemented", "Home")
+
+        </div>
+            
+
+    </div>
+</body>
+</html>

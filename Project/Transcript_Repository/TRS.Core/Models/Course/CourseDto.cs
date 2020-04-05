@@ -9,6 +9,8 @@ namespace TRS.Core.Models.Course
 {
     public class CourseDto
     {
+        public int Id { get; set; }
+
         [Display(Name = "Course ID")]
         [Range(100000, 999999, ErrorMessage = "Course ID must be 6-digits long.")]
         [Required(ErrorMessage = "Please enter a valid Course ID.")]

@@ -10,6 +10,8 @@ namespace TRS.Core.Models.Module
     public class ModuleDto
     {
 
+        public int Id { get; set; }
+
         [Display(Name = "Module ID")]
         [Range(100000, 999999, ErrorMessage = "Module ID must be 6-digits long.")]
         [Required(ErrorMessage = "Please enter a valid Module ID.")]

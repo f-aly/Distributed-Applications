@@ -1,0 +1,91 @@
+﻿@model Transcript_Repository.ViewModels.TranscriptViewModel
+@{
+    ViewBag.Title = "View Transcripts";
+    int TranscriptCounter = 0;
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<hr />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <form>
+        <div>
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">My Transcripts</div>
+                <div class="panel-body">
+                    <p>You have <span id="TotalNumberTranscripts"> @(Model.Transcripts.Count + 4) </span> transcripts available</p>
+                </div>
+
+                <!-- Table -->
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for student names.." title="Type in a name">
+
+                <table id="myTable" class="table">
+                    <tr>
+                        <th>Transcript ID</th>
+                        <th>Transcript Name</th>
+                        <th>Student Name</th>
+                        <th>Transcript Date</th>
+                        <th>Access Status</th>
+                        <th>Details</th>
+                    </tr>
+
+                    @foreach (var transcript_ in Model.Transcripts)
+                    {
+                    <tr>
+                        <td>@transcript_.Transcript_ID</td>
+                        <td>Transcript mock</td>
+                        <td>Mr Mocker</td>
+                        <td>10/05/2019</td>
+                        @if (@transcript_.isPublic_)
+                         {
+                            <td style="color:green">Public</td>
+                            <td>@Html.ActionLink("More Details", "Details", "Transcript",new { id = @transcript_.Transcript_ID } , null)</td>
+                         }
+                        else
+                        {
+                            <td style="color:red">Private</td>
+                            <td>Unavailabe</td>
+                        }
+
+                    </tr>
+                        { TranscriptCounter++; }
+                    }
+                </table>
+
+                <script>
+                    function myFunction() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById("myInput");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("myTable");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[2];
+                            if (td) {
+                                txtValue = td.textContent || td.innerText;
+                                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+                            }
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

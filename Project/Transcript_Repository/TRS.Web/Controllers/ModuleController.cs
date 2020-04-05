@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TRS.Core.DomainModels;
+using TRS.Core.Models.Module;
 using TRS.Data;
 using TRS.Web.Models.Module;
 
@@ -15,7 +17,18 @@ namespace TRS.Web.Controllers
         {
             using (TRSContext context = new TRSContext())
             {
-                return View(context.Modules.ToList());
+                return View(new ListViewModel
+                {
+                    Modules = context.Modules.Select(x => new ModuleDto
+                    {
+                        Id = x.Id,
+                        Title = x.ModuleTitle,
+                        ModuleId = x.ModuleId,
+                        Comment = x.ModuleComment,
+                        Trimester = x.ModuleTrimester
+                    }).ToList()
+
+                });
 
             }
         }
@@ -25,7 +38,17 @@ namespace TRS.Web.Controllers
         {
             using (TRSContext context = new TRSContext())
             {
-                return View(context.Modules.Where(m => m.Id == id).FirstOrDefault());
+                return View(new ModuleViewModel
+                {
+                    Module = context.Modules.Select(x => new ModuleDto
+                    {
+                        Id = x.Id,
+                        Title = x.ModuleTitle,
+                        ModuleId = x.ModuleId,
+                        Comment = x.ModuleComment,
+                        Trimester = x.ModuleTrimester
+                    }).FirstOrDefault(x => x.Id == id)
+                });
             }
         }
 
@@ -41,32 +64,27 @@ namespace TRS.Web.Controllers
         // POST: Module/Create
         [HttpPost]
         [ValidateAntiForgeryToken] // captures data
-        public ActionResult Add(AddModuleViewModel model)
+        public ActionResult Add(ModuleViewModel model)
         {
-
-            try
+            if (ModelState.IsValid)
             {
-                using (TRSContext context = new TRSContext())
+                try
                 {
-                    //dbModel.Modules.Add(module);
-                    context.SaveChanges();
+                    using (TRSContext context = new TRSContext())
+                    {
+                        //dbModel.Modules.Add(module);
+                        context.SaveChanges();
+                    }
+                    return RedirectToAction("Index");
                 }
-                return RedirectToAction("Index");
+                catch
+                {
+                    return View();
+                }
             }
-            catch
-            {
-                return View();
-            }
-            //if (ModelState.IsValid) // if they followed the validation rules set in ModuleModel
-            //{
-            //    int moduleRecords = CreateModule(model.ModuleId,
-            //        model.ModuleTitle,
-            //        model.ModuleResult,
-            //        model.ModuleTrimester,
-            //        model.ModuleComment);
-            //    return RedirectToAction("List"); // if added succesfully, go to ViewModules page
-            //}
-            //return View();
+
+            return View();
+
         }
 
         // GET: Module/Edit/5
@@ -83,14 +101,14 @@ namespace TRS.Web.Controllers
 
         // POST: Module/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Module module)
+        public ActionResult Edit(int id, ModuleViewModel model)
         {
             try
             {
                 // TODO: Add update logic here
                 using (TRSContext context = new TRSContext())
                 {
-                    context.Entry(module).State = EntityState.Modified;
+                    // context.Entry(module).State = EntityState.Modified;
                     context.SaveChanges();
                 }
                 return RedirectToAction("Index");
@@ -134,25 +152,5 @@ namespace TRS.Web.Controllers
             }
         }
 
-        //public ActionResult List()
-        //{
-        //    ViewBag.Message = "Modules List";
-
-        //    var data = LoadModules();
-        //    List<ModuleModel> modules = new List<ModuleModel>();
-        //    foreach (var module in data)
-        //    {
-        //        modules.Add(new ModuleModel
-        //        {
-        //            ModuleId = module.ModuleId,
-        //            ModuleTitle = module.ModuleTitle,
-        //            ModuleResult = module.ModuleResult,
-        //            ModuleTrimester = module.ModuleTrimester,
-        //            ModuleComment = module.ModuleComment
-        //        });
-        //    }
-
-        //    return View(modules);
-        //}
     }
 }

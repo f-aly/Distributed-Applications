@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Transcript_Repository.Models.Module>
+﻿@model TRS.Web.Models.Module.ListViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -12,33 +12,33 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ModuleTitle)
+            @Html.DisplayNameFor(model => model.Modules[0].Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModuleResult)
+            @Html.DisplayNameFor(model => model.Modules[0].ModuleId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModuleTrimester)
+            @Html.DisplayNameFor(model => model.Modules[0].Trimester)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ModuleComment)
+            @Html.DisplayNameFor(model => model.Modules[0].Comment)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Modules) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ModuleTitle)
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ModuleResult)
+            @Html.DisplayFor(modelItem => item.ModuleId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ModuleTrimester)
+            @Html.DisplayFor(modelItem => item.Trimester)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ModuleComment)
+            @Html.DisplayFor(modelItem => item.Comment)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

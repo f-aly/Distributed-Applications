@@ -1,0 +1,47 @@
+﻿@model TRS.Web.Models.Course.CourseViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <div class="dl-horizontal">
+        <label>
+            @Html.DisplayNameFor(model => model.Course.CourseId)
+        </label>
+
+        <span>
+            @Html.DisplayFor(model => model.Course.CourseId)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.Course.Name)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.Course.Name)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.Course.Qualification)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.Course.Qualification)
+        </span>
+        <br />
+        <label>
+            @Html.DisplayNameFor(model => model.Course.Length)
+        </label>
+        <span>
+            @Html.DisplayFor(model => model.Course.Length)
+        </span>
+        <br />
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.Course.Id  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

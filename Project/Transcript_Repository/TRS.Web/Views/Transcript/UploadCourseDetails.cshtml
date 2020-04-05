@@ -1,0 +1,161 @@
+﻿@{
+    ViewBag.Title = "Course Details";
+}
+<h2>@ViewBag.Title</h2>
+<hr />
+    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<hr />
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <div class="panel panel-primary" style="border-color:#24221f;">
+            <!-- Default panel contents -->
+            <div class="panel-heading;" style="background-color:#24221f; color:whitesmoke;">Course Details</div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <label>Program Name:</label> <br />
+                        <label>Student ID:</label> <br />
+                        <label>Student Name:</label> <br />
+                        <label>Qualification Type:</label> <br />
+                        <label>Result:</label> <br />
+                        <br />
+                        <button type='button' onclick='CheckifallFill()' class='btn btn - danger'>
+                            Generate number of modules
+                        </button>
+                    </div>
+
+                    <div class="col-md-4">
+                        <input size="200" id="Program_Name;" placeholder="Computer Science (Embedded Systems)" type="text" /><br>
+                        <input size="7" id="Student_ID;" placeholder="072 421" type="text" /><br>
+                        <input class="m-md-2" size="15" id="Student_Name;" placeholder="Stan Stanley" type="text" /><br>
+                        <input size="4" id="Qualification_Type;" placeholder="Msc/Bsc" type="text" /><br>
+                        <input size="2" id="Results;" placeholder="82%" type="text" /><br>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <label>Length (years):</label>
+                    </div>
+
+
+                    <div id="courseDetails" class="col-md-1">
+                        <input id="length_inYears" placeholder="3" type="number" onchange="AddModule()" /><br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary" style="border-color:#24221f;">
+            <!-- Default panel contents -->
+            <div class="panel-heading;" style="background-color:#24221f; color:whitesmoke;">Number of Modules</div>
+            <small id="fillmein">Fill in "Length (years)" to auto populate this box</small>
+            <div id="Modulesinyear" class="panel-body">
+                <div id="LabelsForModule" class="col-md-4">
+
+                </div>
+                <div id="Textboxes_for_moduleno" class="col-md-2">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="Parentoftranscript">
+            <div id="Transcript_Template" style="display: none">
+                <!-- SHOW CONTENT FROM AddModule.cshtml HERE -->
+
+            </div>
+        </div>
+
+
+
+        <div id="div">
+            @Html.ActionLink("Next", "UploadYearResults")
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var x = 1
+    function AddModule() {
+        var LabelDiv = document.getElementById("LabelsForModule");
+        var InputDiv = document.getElementById("Textboxes_for_moduleno");
+        var FillmeinText = document.getElementById("fillmein");
+        var Years = document.getElementById("length_inYears").value;
+        console.log(typeof Years == "number");
+        if (!isNaN(Years)) {
+            if (Years < 6 && Years > 0) {
+                x = 1;
+                FillmeinText.innerHTML = "";
+                LabelDiv.innerHTML = "";
+                InputDiv.innerHTML = "";
+                for (var i = 0; i < Years; i++) {
+                    LabelDiv.innerHTML += "<label id='lblmod" + x + "'>Number of modules in year " + x + "</label><br >";
+                    InputDiv.innerHTML += "<input type='number' placeholder='6' id='tbmod" + x + "'><br >";
+                    x++;
+                }
+                x--;
+                LabelDiv.innerHTML += "<button type='button' onclick='CheckifallFill()' class='btn btn - danger'>Generate transcript template</button>";
+            }
+        }
+    }
+
+    function CheckifallFill() {
+        var AllFULL = true;
+        for (var i = 1; i <= x; i++) {
+            var LabelDiv = document.getElementById("tbmod" + i).value;
+            console.log("tbmod" + i);
+            if (!isNaN(LabelDiv)) {
+                if (!(LabelDiv > 0 && LabelDiv < 10)) {
+                    AllFULL = false;
+                }
+            }
+            else { AllFULL = false; }
+        }
+        if (AllFULL) {
+            console.log("Generating template");
+            GenerateTemplate();
+        }
+    }
+
+    function GenerateTemplate() {
+        var Transcript_Template = document.getElementById("Transcript_Template");
+        var Length = document.getElementById("length_inYears").value;
+        var HtmlHolder = "";
+        var ModuleNumber = 1;
+
+        //foreach year
+        for (var i = 1; i <= Length; i++) {
+            HtmlHolder += " <form action='/action_page.php'><br /> <div style='text-align:center'><div ><spam>Year:  <input size='4' disabled id='Qualification_Type" + ModuleNumber + " ;' placeholder='" + i + "' type='text' /></spam><br></div></div></form> <hr style='width:500px; border-color:black' />";
+            //foreach module
+            var HowmanyModulesIntheYear = document.getElementById("tbmod" + i).value;
+            for (var w = 1; w <= HowmanyModulesIntheYear; w++) {
+                var Fields = "<hr style='width:500px; border-color:black' /> <div class='panel-body'> <div class='row'> <div class='col-md-2'><b>Module</b><label>Module Title:</label> <br /> <label>Module ID:</label> <br /><label>Result:</label> <br /> <label>Trimester ID:</label> <br /> <label>Comments:</label> </div> <div class='col-md-2'><br /><input size='400' id='Program_Name" + ModuleNumber + "'; placeholder='Embedded Systems' type='text' /><br> <input size='7' id='Student_ID" + ModuleNumber + "'; placeholder='700069' type='text' /><br><input class='m-md-2' size='15' id='Student_Name" + ModuleNumber + "'; placeholder='64' type='text' /><br> <input size='4' id='Qualification_Type" + ModuleNumber + "'; placeholder='1' type='text' /><br> <input size='400' id='Results" + ModuleNumber + "' placeholder='ACW 1: 50%, ACW 2: 74%' type='text' /> </div> </div> </div>";
+                HtmlHolder += Fields;
+                ModuleNumber++;
+            }
+        }
+
+
+        var DivPanel = "<div class='panel panel-primary' style='border-color:#24221f;'> <div class='panel-heading;' style='background-color: #24221f; color:whitesmoke;'> Transcript template</div> <div id='Modulesinyear' class='panel-body'> " + HtmlHolder + " </div></div>";
+
+        var Transcript_Template_parent = document.getElementById("Parentoftranscript");
+        Transcript_Template_parent.innerHTM = "";
+        Transcript_Template.innerHTML = "";
+
+        Transcript_Template.innerHTML += DivPanel;
+
+        console.log("completed generating template");
+
+    }
+</script>

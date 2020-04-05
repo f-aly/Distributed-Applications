@@ -62,6 +62,7 @@
     <Compile Include="DomainModels\Transcript.cs" />
     <Compile Include="Models\Course\CourseDto.cs" />
     <Compile Include="Models\Module\ModuleDto.cs" />
+    <Compile Include="Models\Transcript\TranscriptDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

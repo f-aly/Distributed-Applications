@@ -8,7 +8,7 @@ namespace TRS.Web.Models.Module
 {
     public class ListViewModel
     {
-        private List<ModuleDto> Modules { get; set; }
+        public List<ModuleDto> Modules { get; set; }
 
         public ListViewModel()
         {

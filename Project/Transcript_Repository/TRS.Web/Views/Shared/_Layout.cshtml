@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Student Transcript Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,13 +17,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("TRS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand"})
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Modules", "Index", "Module")</li>
+
+                    @*Add a check to see which user is signed in and ommit some of
+                    these results (e.g student shouldnt be able to see the upload dropdown item)*@
+
+                    <li class="nav-item dropdown-toggle">
+                        <a class="nav-link dropdown-toggle" href="@Url.Action( "Index", "Transcript")" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Transcripts
+                        </a>
+
+                        <div class="text">
+                            <div class="dropdown-menu" style="background-color:steelblue;" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="@Url.Action( "Index", "Transcript")" style="color :white">My Transcripts</a> <br />
+                                <a class="dropdown-item" href="@Url.Action( "Upload", "Transcript")" style="color :white">Upload Transcripts</a> <br />
+                                <a class="dropdown-item" href="@Url.Action( "Search", "Transcript")" style="color :white">Search Transcripts</a> <br />
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>@Html.ActionLink("Actions", "Actions", "Home")</li>
+                    <li>@Html.ActionLink("Courses", "List", "Course")</li>
+                    <!--<li>@Html.ActionLink("Contact", "Contact", "Home")</li>-->
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +53,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Distributed Applications (Group 1)</p>
         </footer>
     </div>
 

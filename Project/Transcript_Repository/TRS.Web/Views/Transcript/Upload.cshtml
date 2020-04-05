@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Upload Transcript";
+}
+<h2>@ViewBag.Title</h2>
+<hr />
+    Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<hr />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+        <div class="thumbnail" style="min-height:50px;">
+            <h4>Manual</h4>
+            <div class="card-body">
+                <p class="card-text">@Html.ActionLink("Enter details manually", "UploadCourseDetails")</p>
+            </div>
+        </div>
+
+        <div class="thumbnail" style="min-height:50px;">
+            <h4>PDF</h4>
+            <div class="card-body">
+                <p class="card-text">@Html.ActionLink("Upload PDF", "NotImplemented", "Home")</p>
+            </div>
+        </div>
+
+        <div class="thumbnail" style="min-height:50px;">
+            <h4>XML</h4>
+            <div class="card-body">
+                <p class="card-text">@Html.ActionLink("Use xml files to fill student transcript fields", "NotImplemented", "Home")</p>
+            </div>
+        </div>
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</body>
+</html>
+
