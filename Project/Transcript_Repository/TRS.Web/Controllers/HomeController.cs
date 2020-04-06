@@ -26,5 +26,11 @@ namespace TRS.Web.Controllers
 
             return View();
         }
+        public ActionResult Actions()
+        {
+            ViewBag.Message = "Your actions page.";
+
+            return View();
+        }
     }
 }

@@ -72,7 +72,14 @@ namespace TRS.Web.Controllers
                 {
                     using (TRSContext context = new TRSContext())
                     {
-                        //dbModel.Modules.Add(module);
+                        Module module = new Module
+                        {
+                            ModuleTitle = model.Module.Title,
+                            ModuleId = model.Module.ModuleId,
+                            ModuleTrimester = model.Module.Trimester,
+                            ModuleComment = model.Module.Comment
+                        };
+                        context.Modules.Add(module);
                         context.SaveChanges();
                     }
                     return RedirectToAction("Index");
@@ -95,7 +102,17 @@ namespace TRS.Web.Controllers
 
             using (TRSContext context = new TRSContext())
             {
-                return View(context.Modules.Where(m => m.Id == id).FirstOrDefault());
+                return View(new ModuleViewModel
+                {
+                    Module = context.Modules.Select(x => new ModuleDto
+                    {
+                        Id = x.Id,
+                        Title = x.ModuleTitle,
+                        ModuleId = x.ModuleId,
+                        Comment = x.ModuleComment,
+                        Trimester = x.ModuleTrimester
+                    }).FirstOrDefault(x => x.Id == id)
+                });
             }
         }
 
@@ -105,10 +122,15 @@ namespace TRS.Web.Controllers
         {
             try
             {
-                // TODO: Add update logic here
                 using (TRSContext context = new TRSContext())
                 {
-                    // context.Entry(module).State = EntityState.Modified;
+                    var module = context.Modules.Find(id);
+                    if (module != null)
+                    {
+                        module.ModuleTitle = model.Module.Title;
+                        module.ModuleTrimester = model.Module.Trimester;
+                        module.ModuleComment = model.Module.Comment;
+                    }
                     context.SaveChanges();
                 }
                 return RedirectToAction("Index");
@@ -126,21 +148,29 @@ namespace TRS.Web.Controllers
 
             using (TRSContext context = new TRSContext())
             {
-                return View(context.Modules.Where(m => m.Id == id).FirstOrDefault());
+                return View(new ModuleViewModel
+                {
+                    Module = context.Modules.Select(x => new ModuleDto
+                    {
+                        Id = x.Id,
+                        Title = x.ModuleTitle,
+                        ModuleId = x.ModuleId,
+                        Comment = x.ModuleComment,
+                        Trimester = x.ModuleTrimester
+                    }).FirstOrDefault(x => x.Id == id)
+                });
             }
         }
 
         // POST: Module/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, ModuleViewModel model)
         {
             try
             {
-                // TODO: Add delete logic here
-
                 using (TRSContext context = new TRSContext())
                 {
-                    Module module = context.Modules.Where(m => m.Id == id).FirstOrDefault();
+                    Module module = context.Modules.Find(id);
                     context.Modules.Remove(module);
                     context.SaveChanges();
                 }
